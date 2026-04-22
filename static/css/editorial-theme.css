@@ -1294,9 +1294,9 @@ footer,
     }
 
     .brand-help {
-        width: 100%;
-        min-height: 42px;
-        padding: 10px 14px;
+        width: auto;
+        min-height: 48px;
+        padding: 12px 18px;
         font-size: 0.92rem;
         letter-spacing: 0.06em;
         box-shadow: none;
@@ -1323,6 +1323,7 @@ footer,
 
     .navbar-utility {
         margin: 8px 0 0;
+        justify-content: flex-start;
     }
 
     .navbar-default .navbar-nav > li > a {
@@ -1378,6 +1379,26 @@ footer,
 
     .page-detail .content > div {
         padding: 24px 18px 34px;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .page-test .ac-custom label {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        transition: background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+    }
+
+    .page-test .ac-custom label:hover,
+    .page-test .ac-custom label:active {
+        transform: none !important;
+        box-shadow: 8px 8px 0 rgba(20, 21, 28, 0.11);
+        background: rgba(255, 255, 255, 0.72);
+    }
+
+    .page-test .ac-custom input[type="checkbox"]:checked + label,
+    .page-test .ac-custom input[type="radio"]:checked + label {
+        transform: none !important;
     }
 }
 
