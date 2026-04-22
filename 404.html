@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>页面未找到 | MBTI 职业性格测试</title>
+    <style>
+        :root {
+            --paper: #f3ead6;
+            --ink: #131313;
+            --accent: #d4492f;
+            --accent-soft: #f6c18b;
+            --line: rgba(19, 19, 19, 0.18);
+            --shadow: 0 18px 40px rgba(19, 19, 19, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(212, 73, 47, 0.16), transparent 36%),
+                radial-gradient(circle at bottom right, rgba(246, 193, 139, 0.32), transparent 34%),
+                linear-gradient(135deg, #efe3cb 0%, #f7efe0 52%, #efe4ce 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .sheet {
+            width: min(720px, 100%);
+            padding: 28px;
+            border: 1px solid var(--line);
+            background: rgba(255, 251, 244, 0.92);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sheet::before,
+        .sheet::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .sheet::before {
+            top: 16px;
+            right: -36px;
+            width: 140px;
+            height: 32px;
+            background: rgba(19, 19, 19, 0.08);
+            transform: rotate(7deg);
+        }
+
+        .sheet::after {
+            bottom: -18px;
+            left: 28px;
+            width: 120px;
+            height: 120px;
+            border: 1px dashed rgba(19, 19, 19, 0.18);
+            border-radius: 50%;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            font-size: 12px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(34px, 7vw, 64px);
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .lead {
+            margin: 18px 0 0;
+            max-width: 42rem;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .missing {
+            margin: 22px 0 0;
+            padding: 12px 14px;
+            border-left: 4px solid var(--accent);
+            background: rgba(212, 73, 47, 0.08);
+            font-size: 14px;
+            line-height: 1.6;
+            word-break: break-all;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 18px;
+            border: 1px solid var(--ink);
+            color: var(--ink);
+            text-decoration: none;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(246, 193, 139, 0.28));
+            box-shadow: 6px 6px 0 rgba(19, 19, 19, 0.12);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .actions a:hover,
+        .actions a:focus {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0 rgba(19, 19, 19, 0.12);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(246, 193, 139, 0.38));
+        }
+
+        .hint {
+            margin: 22px 0 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(19, 19, 19, 0.76);
+        }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
+        @media (max-width: 640px) {
+            .sheet {
+                padding: 22px 18px;
+            }
+
+            .lead {
+                font-size: 16px;
+            }
+
+            .actions a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="sheet">
+        <p class="eyebrow">GitHub Pages / 404</p>
+        <h1>Page Missing</h1>
+        <p class="lead">当前地址没有对应的静态页面。可能是访问了错误链接，或刚刚发布的内容还没有同步完成。</p>
+        <p class="missing">请求地址：<code id="missing-path"></code></p>
+
+        <div class="actions">
+            <a data-relative-href="index.html" href="./index.html">返回首页</a>
+            <a data-relative-href="mbti-test.html" href="./mbti-test.html">开始测试</a>
+            <a data-relative-href="personality-types.html" href="./personality-types.html">查看人格简介</a>
+        </div>
+
+        <p class="hint">如果这是 GitHub Pages 项目页面，等待最新部署完成后刷新一次，或从上面的入口重新进入站点。</p>
+    </main>
+
+    <script>
+        (function () {
+            function buildCandidateRoots(pathname) {
+                var parts = pathname.split('/').filter(Boolean);
+                var candidates = ['/'];
+                var prefix = '';
+                var i;
+
+                for (i = 0; i < parts.length - 1; i += 1) {
+                    prefix += '/' + parts[i];
+                    candidates.unshift(prefix + '/');
+                }
+
+                return candidates;
+            }
+
+            function checkRoot(root) {
+                return window.fetch(root + 'robots.txt', { cache: 'no-store' })
+                    .then(function (response) {
+                        return response.ok ? root : null;
+                    })
+                    .catch(function () {
+                        return null;
+                    });
+            }
+
+            function applyRoot(root) {
+                Array.prototype.forEach.call(document.querySelectorAll('[data-relative-href]'), function (link) {
+                    link.setAttribute('href', root + link.getAttribute('data-relative-href'));
+                });
+            }
+
+            function resolveRoot() {
+                var target = document.getElementById('missing-path');
+                var candidates = buildCandidateRoots(window.location.pathname);
+
+                if (target) {
+                    target.textContent = window.location.pathname + window.location.search + window.location.hash;
+                }
+
+                candidates.reduce(function (chain, root) {
+                    return chain.then(function (resolvedRoot) {
+                        if (resolvedRoot) {
+                            return resolvedRoot;
+                        }
+
+                        return checkRoot(root);
+                    });
+                }, Promise.resolve(null)).then(function (resolvedRoot) {
+                    applyRoot(resolvedRoot || './');
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', resolveRoot);
+            } else {
+                resolveRoot();
+            }
+        })();
+    </script>
+</body>
+
+</html>

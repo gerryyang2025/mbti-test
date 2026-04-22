@@ -1,0 +1,48 @@
+name: Bug Report
+description: 报告页面错误、资源加载问题或结果异常
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 问题描述
+      description: 简要说明出现了什么问题
+      placeholder: 例如：移动端打开首页时，顶部导航文字显示不完整
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请按顺序描述如何复现
+      placeholder: |
+        1. 打开某个页面
+        2. 点击某个按钮
+        3. 观察到异常结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+      placeholder: 说明你原本期望看到的行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 浏览器、系统、设备尺寸或本地运行方式
+      placeholder: 例如：Chrome 135 / macOS / iPhone 14 / 本地 http.server
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 可附日志、截图、控制台报错等
+

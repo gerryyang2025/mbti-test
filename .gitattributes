@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
+
+static/css/bootstrap.min.css linguist-generated=true
+static/js/vendor/* linguist-generated=true
+

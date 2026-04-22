@@ -1,0 +1,1278 @@
+:root {
+    --paper: #f7f0e3;
+    --paper-deep: #eadcc6;
+    --ink: #14151c;
+    --ink-soft: #353743;
+    --acid: #d6ff3f;
+    --signal: #ff5a36;
+    --electric: #00b8ff;
+    --sun: #ffd24b;
+    --panel-shadow: 12px 12px 0 rgba(20, 21, 28, 0.12);
+    --panel-shadow-strong: 18px 18px 0 rgba(20, 21, 28, 0.15);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--paper);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--ink);
+    font-family: Georgia, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background:
+        radial-gradient(circle at 12% 12%, rgba(255, 90, 54, 0.18), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(214, 255, 63, 0.14), transparent 18%),
+        radial-gradient(circle at 18% 84%, rgba(0, 184, 255, 0.16), transparent 24%),
+        linear-gradient(135deg, #f8f2e8 0%, #ede2d2 38%, #fbf6ee 100%);
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.88;
+    background:
+        repeating-linear-gradient(0deg, rgba(20, 21, 28, 0.03) 0 1px, transparent 1px 42px),
+        repeating-linear-gradient(90deg, rgba(20, 21, 28, 0.03) 0 1px, transparent 1px 42px),
+        radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.6), transparent 20%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    right: -100px;
+    bottom: 4%;
+    width: 320px;
+    height: 320px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    filter: blur(72px);
+    background: conic-gradient(from 90deg, rgba(255, 90, 54, 0.9), rgba(255, 210, 75, 0.7), rgba(0, 184, 255, 0.75), rgba(255, 90, 54, 0.9));
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+::selection {
+    color: var(--ink);
+    background: var(--acid);
+}
+
+.container {
+    width: min(1120px, calc(100% - 32px));
+    max-width: 1120px;
+}
+
+.page-home {
+    padding-top: 18px;
+}
+
+.page-types,
+.page-detail {
+    padding-top: 18px;
+}
+
+.page-test {
+    padding-top: 18px;
+}
+
+.navbar.navbar-default {
+    margin: 16px auto 28px;
+    border: 2px solid var(--ink);
+    border-radius: 22px 6px 22px 6px;
+    background:
+        linear-gradient(135deg, rgba(255, 252, 246, 0.94), rgba(247, 240, 227, 0.9)),
+        repeating-linear-gradient(135deg, rgba(20, 21, 28, 0.03) 0 2px, transparent 2px 18px);
+    box-shadow: 10px 10px 0 rgba(20, 21, 28, 0.12);
+    overflow: hidden;
+}
+
+.navbar.navbar-fixed-top {
+    top: 14px;
+}
+
+.navbar.navbar-default .container {
+    width: auto;
+    max-width: none;
+    padding: 0 18px;
+}
+
+.navbar-header {
+    position: relative;
+}
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    color: var(--ink) !important;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 1.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    min-height: auto;
+    height: auto;
+    padding: 18px 0 18px 22px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.navbar-brand::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--ink);
+    background: var(--signal);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.navbar-brand::after {
+    display: none;
+}
+
+.navbar-default .navbar-nav {
+    margin: 0;
+}
+
+.navbar-default .navbar-nav > li {
+    float: none;
+}
+
+.navbar-default .navbar-nav > li > a {
+    margin: 12px 0 12px 12px;
+    padding: 14px 16px;
+    border: 2px solid rgba(20, 21, 28, 0.14);
+    background: rgba(255, 255, 255, 0.52);
+    box-shadow: 4px 4px 0 rgba(20, 21, 28, 0.08);
+    color: var(--ink) !important;
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: none;
+    white-space: normal;
+    max-width: 16em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: var(--signal) !important;
+    background: rgba(255, 255, 255, 0.86) !important;
+    box-shadow: 8px 8px 0 rgba(255, 90, 54, 0.16);
+    transform: translate(-3px, -3px) rotate(-1deg);
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.navbar-default .navbar-toggle {
+    margin-top: 10px;
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    background: var(--paper) !important;
+    box-shadow: 4px 4px 0 rgba(20, 21, 28, 0.08);
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    height: 3px;
+    background: var(--ink);
+}
+
+.issue-tag,
+.eyebrow {
+    display: inline-block;
+    padding: 0.48rem 0.8rem;
+    border: 2px solid var(--ink);
+    background: var(--acid);
+    box-shadow: 6px 6px 0 rgba(20, 21, 28, 0.12);
+    color: var(--ink);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    animation: float-tag 6s ease-in-out infinite;
+}
+
+.secondary-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 14px 18px;
+    border: 2px solid var(--ink);
+    background: rgba(255, 252, 246, 0.86);
+    box-shadow: 8px 8px 0 rgba(20, 21, 28, 0.12);
+    color: var(--ink);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: rotate(1.4deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.secondary-link:hover,
+.secondary-link:focus {
+    transform: translate(-4px, -4px) rotate(-0.6deg);
+    box-shadow: 14px 14px 0 rgba(0, 184, 255, 0.24);
+    background: #fffdf7;
+}
+
+.page-home .home-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.page-home .home-nav {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.page-home .issue-note {
+    margin: 0;
+    color: var(--ink-soft);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.page-home .page-header {
+    margin: 8px 0 34px;
+    padding: clamp(28px, 5vw, 46px);
+    border: 2px solid var(--ink);
+    border-radius: 30px 4px 30px 4px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 240, 227, 0.72)),
+        repeating-linear-gradient(135deg, rgba(20, 21, 28, 0.06) 0 2px, transparent 2px 18px);
+    box-shadow: var(--panel-shadow-strong);
+    overflow: hidden;
+    position: relative;
+}
+
+.page-home .page-header::before {
+    content: "MBTI 93-item test";
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 0.45rem 0.75rem;
+    border: 2px solid var(--ink);
+    background: var(--signal);
+    color: var(--paper);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transform: rotate(5deg);
+}
+
+.page-home .page-header::after {
+    content: "type guide";
+    position: absolute;
+    left: 24px;
+    bottom: 20px;
+    padding: 0.35rem 0.65rem;
+    border: 2px solid var(--ink);
+    background: var(--sun);
+    color: var(--ink);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: rotate(-4deg);
+}
+
+.page-home .content {
+    display: flex;
+    justify-content: center;
+    font: 900 clamp(3.5rem, 12vw, 9rem) / 0.82 Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.06em;
+}
+
+.page-home .text {
+    stroke-width: 9px;
+    stroke-dasharray: 100 360;
+}
+
+.page-home .text:nth-child(5n + 1) {
+    stroke: var(--signal);
+}
+
+.page-home .text:nth-child(5n + 2) {
+    stroke: var(--sun);
+}
+
+.page-home .text:nth-child(5n + 3) {
+    stroke: var(--paper);
+}
+
+.page-home .text:nth-child(5n + 4) {
+    stroke: var(--electric);
+}
+
+.page-home .text:nth-child(5n + 5) {
+    stroke: var(--ink);
+}
+
+.page-home .colortext .anim-shape:nth-child(1) {
+    fill: var(--ink);
+}
+
+.page-home .colortext .anim-shape:nth-child(2) {
+    fill: var(--electric);
+}
+
+.page-home .colortext .anim-shape:nth-child(3) {
+    fill: var(--acid);
+}
+
+.page-home .colortext .anim-shape:nth-child(4) {
+    fill: var(--sun);
+}
+
+.page-home .colortext .anim-shape:nth-child(5) {
+    fill: var(--signal);
+}
+
+.page-home .shadow {
+    transform: translate(18px, 18px);
+}
+
+.page-home .bs-docs-section {
+    margin-top: 34px;
+}
+
+.page-home .bs-component {
+    position: relative;
+    padding: clamp(22px, 4vw, 36px);
+    border: 2px solid var(--ink);
+    background: rgba(255, 252, 246, 0.84);
+    box-shadow: var(--panel-shadow);
+}
+
+.page-home .bs-component::before {
+    content: "Before you enter";
+    position: absolute;
+    top: -18px;
+    left: 20px;
+    padding: 0.4rem 0.7rem;
+    border: 2px solid var(--ink);
+    background: var(--electric);
+    color: var(--ink);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+}
+
+.page-home .bs-component h2,
+.page-test .survey-lead h1,
+.page-types .types-intro h1 {
+    margin-top: 0;
+    color: var(--ink);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.page-home .bs-component h2 {
+    margin-bottom: 18px;
+    font-size: clamp(2rem, 6vw, 3.7rem);
+}
+
+.page-home .bs-component p {
+    max-width: 72ch;
+    color: var(--ink-soft);
+    font-size: 1.03rem;
+    line-height: 1.85;
+}
+
+.page-home .home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    margin: 32px 0 84px;
+}
+
+.page-home .a-btn {
+    position: relative;
+    left: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    margin-left: 0;
+    padding: 18px 28px;
+    border: 2px solid var(--ink);
+    border-radius: 999px 20px 999px 999px;
+    background: var(--ink);
+    box-shadow: 14px 14px 0 rgba(255, 90, 54, 0.48);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.page-home .a-btn span {
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    color: var(--paper);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    text-shadow: none;
+    opacity: 1;
+    transition: none;
+}
+
+.page-home .a-btn span:nth-child(1) {
+    background: none;
+    animation: none;
+    color: var(--acid);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.page-home .a-btn span:nth-child(2) {
+    font-size: clamp(1.45rem, 4vw, 2.2rem);
+    letter-spacing: 0.05em;
+}
+
+.page-home .a-btn span:nth-child(3) {
+    color: var(--sun);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.page-home .a-btn:hover,
+.page-home .a-btn:focus {
+    background: #181a23;
+    box-shadow: 20px 20px 0 rgba(0, 184, 255, 0.46);
+    transform: translate(-6px, -6px) rotate(-2deg);
+}
+
+.page-home .a-btn:hover span:nth-child(1),
+.page-home .a-btn:hover span:nth-child(2),
+.page-home .a-btn:hover span:nth-child(3) {
+    animation: none;
+    opacity: 1;
+    margin-top: 0;
+    transform: none;
+}
+
+.page-home .a-btn:active {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0 rgba(255, 210, 75, 0.52);
+}
+
+.page-test .test-nav {
+    margin-bottom: 34px;
+}
+
+.page-test .survey-lead,
+.page-types .types-intro {
+    position: relative;
+    overflow: hidden;
+    margin: 8px auto 26px;
+    padding: clamp(22px, 4vw, 36px);
+    border: 2px solid var(--ink);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 240, 227, 0.76)),
+        repeating-linear-gradient(135deg, rgba(20, 21, 28, 0.05) 0 2px, transparent 2px 22px);
+    box-shadow: var(--panel-shadow);
+}
+
+.page-test .survey-lead::after {
+    content: "one question at a time";
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    padding: 0.38rem 0.65rem;
+    border: 2px solid var(--ink);
+    background: var(--signal);
+    color: var(--paper);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: rotate(4deg);
+}
+
+.page-test .survey-lead h1 {
+    margin: 0.38rem 0 0.3rem;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    line-height: 0.88;
+}
+
+.page-test .survey-lead p:last-child {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.page-test .question-layout {
+    padding-bottom: 64px;
+}
+
+.page-test .questionbox {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.page-test .flexWidth {
+    width: min(860px, 100%);
+}
+
+.page-test #mbtiquestion > p {
+    padding: 2rem;
+    border: 2px solid var(--ink);
+    background: rgba(255, 252, 246, 0.88);
+    box-shadow: var(--panel-shadow);
+}
+
+.page-test .ac-custom {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(22px, 5vw, 42px);
+    border: 2px solid var(--ink);
+    background: rgba(255, 252, 246, 0.92);
+    box-shadow: var(--panel-shadow-strong);
+}
+
+.page-test .ac-custom::before {
+    content: "interactive questionnaire";
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 0.42rem 0.65rem;
+    border: 2px solid var(--ink);
+    background: var(--electric);
+    color: var(--ink);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: rotate(5deg);
+}
+
+.page-test .ac-custom fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.page-test .ac-custom legend {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 1.5rem;
+    border-bottom: 2px dashed rgba(20, 21, 28, 0.22);
+    color: var(--ink);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4rem) !important;
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.page-test .ac-custom ul {
+    margin: 1.5rem 0 0;
+}
+
+.page-test .ac-custom li {
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+.page-test .ac-custom label {
+    display: block;
+    padding: 1.2rem 1.2rem 1.2rem 4.6rem;
+    border: 2px solid var(--ink);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 8px 8px 0 rgba(20, 21, 28, 0.11);
+    color: var(--ink);
+    font-size: clamp(1rem, 2.8vw, 1.45rem);
+    line-height: 1.45;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.page-test .ac-custom label:hover {
+    transform: translate(-5px, -5px) rotate(-1deg);
+    box-shadow: 14px 14px 0 rgba(255, 90, 54, 0.32);
+    background: #fffdf7;
+}
+
+.page-test .ac-circle input[type="checkbox"],
+.page-test .ac-circle input[type="radio"],
+.page-test .ac-circle label::before {
+    width: 22px;
+    height: 22px;
+    margin-top: -11px;
+    left: 22px;
+}
+
+.page-test .ac-circle label::before {
+    border: 2px solid var(--ink);
+    background: var(--paper);
+}
+
+.page-test .ac-circle svg {
+    width: 64px;
+    height: 64px;
+    margin-top: -32px;
+    left: 3px;
+}
+
+.page-test .ac-custom svg path {
+    stroke: var(--ink);
+    stroke-width: 4px;
+}
+
+.page-test .ac-custom input[type="checkbox"]:checked + label,
+.page-test .ac-custom input[type="radio"]:checked + label {
+    color: var(--ink);
+    background: linear-gradient(135deg, rgba(214, 255, 63, 0.35), rgba(255, 210, 75, 0.32));
+    box-shadow: 12px 12px 0 rgba(0, 184, 255, 0.22);
+}
+
+.page-test .ac-custom input[type="radio"]:focus + label {
+    outline: 3px solid rgba(0, 184, 255, 0.36);
+    outline-offset: 4px;
+}
+
+.page-types .types-intro {
+    margin-bottom: 32px;
+}
+
+.page-types .types-intro::after {
+    content: "16 covers / 16 signals";
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    padding: 0.38rem 0.65rem;
+    border: 2px solid var(--ink);
+    background: var(--signal);
+    color: var(--paper);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: rotate(4deg);
+}
+
+.page-types .types-intro h1 {
+    margin: 0.36rem 0 0.35rem;
+    font-size: clamp(2.7rem, 7vw, 5.4rem);
+    line-height: 0.9;
+}
+
+.page-types .types-intro p:last-child {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.82;
+}
+
+.page-types .grid {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto 92px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.page-types .grid a {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: none;
+    color: var(--ink);
+    position: relative;
+    transform: rotate(-1.5deg);
+    transition: transform 0.22s ease, filter 0.22s ease;
+}
+
+.page-types .grid a:nth-child(odd) {
+    margin: 0;
+}
+
+.page-types .grid a:nth-child(4n + 2) {
+    transform: rotate(1.6deg);
+}
+
+.page-types .grid a:nth-child(4n + 3) {
+    transform: rotate(-2.2deg);
+}
+
+.page-types .grid a:nth-child(4n + 4) {
+    transform: rotate(2.1deg);
+}
+
+.page-types .grid figure {
+    min-height: 370px;
+    margin: 0;
+    border: 2px solid var(--ink);
+    background: rgba(255, 252, 246, 0.88);
+    box-shadow: var(--panel-shadow);
+}
+
+.page-types .grid figure::after {
+    content: "click to open";
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 12;
+    padding: 0.36rem 0.55rem;
+    border: 2px solid var(--ink);
+    background: var(--acid);
+    color: var(--ink);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transform: rotate(6deg);
+}
+
+.page-types .grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    opacity: 0.92;
+    filter: grayscale(0.16) contrast(1.08) saturate(0.9);
+    mix-blend-mode: multiply;
+}
+
+.page-types .grid svg {
+    top: auto;
+    bottom: 118px;
+    height: 160px;
+}
+
+.page-types .grid svg path {
+    fill: rgba(247, 240, 227, 0.95);
+}
+
+.page-types .grid figcaption {
+    position: relative;
+    padding: 18px 18px 24px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(180deg, transparent 0, rgba(247, 240, 227, 0.58) 18%, rgba(247, 240, 227, 0.97) 100%);
+}
+
+.page-types .grid figcaption h2 {
+    margin: 0 0 12px;
+    color: var(--ink);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.08em;
+    transform: none;
+}
+
+.page-types .grid figcaption p {
+    margin: 0 0 18px;
+    padding: 0;
+    color: var(--ink-soft);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+    text-transform: uppercase;
+    transform: none;
+    opacity: 1;
+}
+
+.page-types .grid figure .card-cta {
+    position: static;
+    width: fit-content;
+    padding: 0.72rem 1rem;
+    border: 2px solid var(--ink);
+    background: var(--signal);
+    box-shadow: 6px 6px 0 rgba(20, 21, 28, 0.12);
+    color: var(--paper);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: rotate(-1.4deg);
+}
+
+.page-types .grid a:hover {
+    transform: translateY(-10px) rotate(0deg);
+    filter: saturate(1.1);
+}
+
+.page-types .grid a:hover figure {
+    box-shadow: 20px 20px 0 rgba(20, 21, 28, 0.16);
+}
+
+.page-types .grid a:hover figure img {
+    opacity: 1;
+}
+
+.page-types .grid a:hover figcaption p {
+    opacity: 1;
+}
+
+.page-types .grid a:hover .card-cta {
+    transform: translate(4px, -4px) rotate(0deg);
+    background: var(--ink);
+}
+
+.page-types .grid .grid-error {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 26px;
+    border: 2px solid var(--ink);
+    background: rgba(255, 252, 246, 0.86);
+    box-shadow: var(--panel-shadow);
+    color: var(--ink);
+}
+
+.page-detail .article {
+    padding-top: 0;
+}
+
+.page-detail .header {
+    min-height: 78vh;
+    border: 2px solid var(--ink);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(247, 240, 227, 0.74)),
+        radial-gradient(circle at 80% 18%, rgba(0, 184, 255, 0.14), transparent 20%),
+        radial-gradient(circle at 20% 84%, rgba(255, 90, 54, 0.16), transparent 22%);
+    box-shadow: var(--panel-shadow-strong);
+    overflow: hidden;
+}
+
+.page-detail .header::before {
+    content: "type dossier";
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    padding: 0.42rem 0.72rem;
+    border: 2px solid var(--ink);
+    background: var(--acid);
+    color: var(--ink);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+}
+
+.page-detail .header::after {
+    content: "open the file";
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    padding: 0.38rem 0.65rem;
+    border: 2px solid var(--ink);
+    background: var(--signal);
+    color: var(--paper);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: rotate(5deg);
+}
+
+.page-detail .title {
+    width: min(820px, calc(100% - 48px));
+    padding: clamp(24px, 4vw, 48px);
+    border: 2px solid var(--ink);
+    background: rgba(255, 252, 246, 0.88);
+    box-shadow: var(--panel-shadow-strong);
+    transform: translateX(-50%) translateY(-50%) rotate(-2deg);
+}
+
+.page-detail .title .eyebrow {
+    margin-bottom: 16px;
+}
+
+.page-detail .title h1 {
+    margin: 0;
+    padding: 0 0 0.1em;
+    color: var(--ink);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(4rem, 10vw, 8.4rem);
+    letter-spacing: 0.12em;
+    text-shadow: 6px 6px 0 rgba(255, 90, 54, 0.16);
+}
+
+.page-detail .title p {
+    margin: 0;
+    padding: 0;
+    color: var(--ink-soft);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    letter-spacing: 0.18em;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.page-detail button.trigger {
+    left: 50%;
+    bottom: 24px;
+    width: 96px;
+    height: 96px;
+    margin-left: 0;
+    border: 2px solid var(--ink);
+    border-radius: 50% 50% 0 50%;
+    background: var(--acid);
+    box-shadow: 12px 12px 0 rgba(20, 21, 28, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%) rotate(8deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+}
+
+.page-detail button.trigger::before {
+    left: 50%;
+    bottom: calc(100% + 12px);
+    width: max-content;
+    padding: 0.48rem 0.72rem;
+    border: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: translateX(-50%) rotate(-4deg);
+}
+
+.page-detail button.trigger svg {
+    width: 34px;
+    height: 34px;
+    color: var(--ink) !important;
+}
+
+.page-detail button.trigger:hover,
+.page-detail button.trigger:focus {
+    box-shadow: 18px 18px 0 rgba(255, 90, 54, 0.34);
+    transform: translateX(-50%) translateY(-6px) rotate(2deg);
+}
+
+.page-detail .content {
+    margin-top: -72px;
+    padding: 0 0 6rem;
+}
+
+.page-detail .content > div {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: clamp(24px, 5vw, 52px);
+    border: 2px solid var(--ink);
+    background: rgba(255, 252, 246, 0.94);
+    box-shadow: var(--panel-shadow-strong);
+}
+
+.page-detail #personality-content h3 {
+    margin: 2.6rem 0 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--ink);
+    color: var(--ink);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(1.9rem, 4vw, 3.1rem);
+    line-height: 0.95;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.page-detail #personality-content h3:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.page-detail #personality-content h3::after {
+    content: "";
+    display: block;
+    width: 110px;
+    height: 12px;
+    margin-top: 0.55rem;
+    border: 2px solid var(--ink);
+    background: linear-gradient(90deg, var(--signal), var(--acid));
+}
+
+.page-detail #personality-content p {
+    margin: 0 0 1.15rem;
+    color: var(--ink-soft);
+    font-size: 1.04rem;
+    line-height: 1.95;
+}
+
+.page-detail #personality-content strong {
+    color: var(--ink);
+    background: linear-gradient(transparent 45%, rgba(255, 210, 75, 0.65) 45% 92%, transparent 92%);
+}
+
+.page-detail #personality-content ul,
+.page-detail #personality-content ol {
+    padding-left: 1.4rem;
+}
+
+footer,
+.flashes {
+    margin-top: 90px;
+}
+
+@keyframes float-tag {
+    0%,
+    100% {
+        transform: rotate(-2deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-1deg) translateY(-4px);
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .page-types .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .page-detail .title {
+        width: min(760px, calc(100% - 32px));
+    }
+
+    .page-detail .content {
+        margin-top: -46px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navbar.navbar-default .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+    }
+
+    .navbar-header {
+        float: none;
+        flex: 0 0 auto;
+        min-width: 0;
+        padding-right: 0;
+    }
+
+    .navbar-default .navbar-collapse {
+        flex: 1 1 auto;
+        padding: 0;
+        border-top: 0;
+        box-shadow: none;
+    }
+
+    .navbar-default .navbar-collapse.collapse {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding-bottom: 0;
+    }
+
+    .navbar-default .navbar-nav {
+        float: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .navbar-default .navbar-toggle {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body::after {
+        opacity: 0.16;
+    }
+
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .page-home {
+        padding-top: 12px;
+    }
+
+    .page-types,
+    .page-detail {
+        padding-top: 12px;
+    }
+
+    .navbar.navbar-fixed-top {
+        top: 10px;
+    }
+
+    .navbar.navbar-default {
+        margin-bottom: 20px;
+    }
+
+    .page-home .home-nav {
+        margin-bottom: 18px;
+    }
+
+    .navbar-header {
+        min-height: 64px;
+        padding-right: 58px;
+    }
+
+    .navbar-brand {
+        display: block;
+        padding: 20px 0 18px 22px;
+        font-size: 1.32rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        overflow: visible;
+    }
+
+    .navbar-brand::after {
+        display: none;
+    }
+
+    .navbar-default .navbar-toggle {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin: 0;
+        width: 42px;
+        height: 42px;
+        padding: 8px 7px;
+        transform: translateY(-50%);
+        z-index: 2;
+        box-shadow: none;
+    }
+
+    .navbar-default .navbar-collapse {
+        border-top: 1px solid rgba(20, 21, 28, 0.12);
+        padding: 8px 0 12px;
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        margin: 8px 0 0;
+        padding: 12px 14px;
+        font-size: 0.92rem;
+        white-space: normal;
+        word-break: keep-all;
+        box-shadow: none;
+    }
+
+    .page-home .page-header::before,
+    .page-home .page-header::after,
+    .page-test .survey-lead::after,
+    .page-types .types-intro::after,
+    .page-detail .header::after {
+        display: none;
+    }
+
+    .page-home .home-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-home .a-btn,
+    .secondary-link {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .page-test .ac-custom::before {
+        display: none;
+    }
+
+    .page-types .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-types .grid a {
+        transform: none !important;
+    }
+
+    .page-detail .title {
+        width: calc(100% - 24px);
+        transform: translateX(-50%) translateY(-50%) rotate(-1deg);
+    }
+
+    .page-detail button.trigger {
+        width: 84px;
+        height: 84px;
+    }
+
+    .page-detail .content > div {
+        padding: 24px 18px 34px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .issue-tag,
+    .eyebrow {
+        animation: none !important;
+    }
+
+    .page-home .a-btn,
+    .secondary-link,
+    .page-test .ac-custom label,
+    .page-types .grid a,
+    .page-detail button.trigger {
+        transition: none !important;
+    }
+}

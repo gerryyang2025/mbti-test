@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="MBTI 职业性格测试 93 题版，提供十六型人格解析、优势特点与职业方向参考。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="MBTI,MBTI测试,职业性格测试,十六型人格">
+    <meta property="og:title" content="MBTI 职业性格测试 93 题版">
+    <meta property="og:description" content="在线完成 93 题 MBTI 测试，并查看十六型人格的详细解析与职业建议。">
+    <meta property="og:type" content="website">
+    <title>MBTI 职业性格测试 93 题版</title>
+    <link rel="shortcut icon" href="./static/img/favicon.ico">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/home-title.css">
+    <link rel="stylesheet" href="./static/css/editorial-theme.css">
+    <script defer src="./static/js/common/site-shell.js"></script>
+</head>
+
+<body class="page-home">
+    <!-- 顶部导航在所有主要页面保持一致，降低跳转成本。 -->
+    <div class="navbar navbar-default home-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="./index.html" class="navbar-brand">MBTI</a>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main"
+                    aria-expanded="false"
+                    aria-label="切换导航菜单">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="./personality-types.html">十六种人格简介</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="home-meta">
+            <p class="issue-tag">Issue 093</p>
+            <p class="issue-note">MBTI 93题测试 / 十六型人格参考</p>
+        </div>
+
+        <!-- 主视觉标题通过 SVG 文本描边动画突出测试主题。 -->
+        <div class="page-header">
+            <div class="content">
+                <svg viewBox="0 0 1000 300" style="width: 100%;">
+                    <symbol id="s-text">
+                        <text text-anchor="middle" x="50%" y="60%" dy=".2em">
+                            MBTI-TEST
+                        </text>
+                    </symbol>
+                    <use xlink:href="#s-text" class="text"></use>
+                    <use xlink:href="#s-text" class="text"></use>
+                    <use xlink:href="#s-text" class="text"></use>
+                    <use xlink:href="#s-text" class="text"></use>
+                    <use xlink:href="#s-text" class="text"></use>
+                    <use xlink:href="#s-text" class="text"></use>
+                    <clippath id="cp-text">
+                        <text text-anchor="middle" x="50%" y="60%" dy=".2em" class="text--line">
+                            MBTI-TEST
+                        </text>
+                    </clippath>
+                    <g clip-path="url(#cp-text)" class="shadow">
+                        <rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
+                    </g>
+                    <g clip-path="url(#cp-text)" class="colortext">
+                        <rect width="100%" height="100%" class="anim-shape"></rect>
+                        <rect width="80%" height="100%" class="anim-shape"></rect>
+                        <rect width="60%" height="100%" class="anim-shape"></rect>
+                        <rect width="40%" height="100%" class="anim-shape"></rect>
+                        <rect width="20%" height="100%" class="anim-shape"></rect>
+                    </g>
+                    <use xlink:href="#s-text" class="text--transparent"></use>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 这里展示测试说明，帮助用户理解题目没有对错、结果仅供参考。 -->
+        <div class="bs-docs-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-component">
+                        <h2>MBTI测试前须知</h2>
+                        <p>1、参加测试的人员请务必诚实、独立地回答问题，只有如此，才能得到有效的结果。</p>
+                        <p>2、性格分析展示的是你的性格倾向，而不是你的知识、技能、经验。</p>
+                        <p>
+                            3、MBTI提供的性格类型描述仅供测试者确定自己的性格类型之用，性格类型没有好坏，只有不同。每一种性格特征都有其价值和优点，也有缺点和需要注意的地方。清楚地了解自己的性格优劣势，有利于更好地发挥自己的特长，而尽可能的在为人处事中避免自己性格中的劣势，更好地和他人相处，更好地作重要的决策。
+                        </p>
+                        <p>4、共93题；所有题目没有对错之分，请根据自己的实际情况选择。</p>
+                        <p>测试结果仅供参考！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-actions">
+            <!-- 首页唯一的主操作按钮，直接进入答题页。 -->
+            <a href="./mbti-test.html" class="a-btn">
+                <span>Issue</span>
+                <span>Start</span>
+                <span>Go!</span>
+            </a>
+            <a href="./personality-types.html" class="secondary-link">人格封面档案</a>
+        </div>
+    </main>
+</body>
+
+</html>

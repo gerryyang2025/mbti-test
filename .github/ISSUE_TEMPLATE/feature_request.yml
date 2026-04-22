@@ -1,0 +1,36 @@
+name: Feature Request
+description: 提出功能、内容或工程化改进建议
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 需求背景
+      description: 为什么需要这个改动
+      placeholder: 说明当前痛点、限制或希望解决的问题
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: 描述你期望的改进方式
+      placeholder: 说明建议新增什么、调整什么，或希望怎样实现
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 影响范围
+      description: 说明预计会影响哪些页面、数据或文档
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他补充
+      description: 可附参考链接、草图、截图或替代方案
+
