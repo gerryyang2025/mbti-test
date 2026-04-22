@@ -314,15 +314,17 @@ button.trigger span::before {
 }
 
 .detail-jump-links {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
 	gap: 10px;
 }
 
 .detail-jump-link {
 	display: inline-flex;
 	align-items: center;
-	min-height: 42px;
+	justify-content: center;
+	width: 100%;
+	min-height: 44px;
 	padding: 10px 14px;
 	border: 2px solid rgba(20, 21, 28, 0.16);
 	background: rgba(255, 255, 255, 0.78);
@@ -530,27 +532,56 @@ button.trigger span::before {
 
 	.detail-top-block {
 		grid-template-columns: 1fr;
+		gap: 18px;
 	}
 
 	.detail-section-header {
 		align-items: flex-start;
 	}
 
+	.detail-summary-title {
+		font-size: clamp(1.9rem, 8vw, 2.45rem);
+	}
+
+	.detail-summary-text {
+		font-size: 1rem;
+		line-height: 1.75;
+	}
+
+	.detail-jump-link {
+		min-height: 40px;
+		padding: 8px 12px;
+		font-size: 0.78rem;
+	}
+
+	.detail-section-title {
+		font-size: clamp(1.45rem, 6vw, 1.9rem);
+	}
+
 	.title,
 	.content {
-		font-size: 70%;
+		font-size: 100%;
 	}
 }
 
 @media screen and (max-width: 27em) {
 	.intro-effect-jam3 .content {
-		padding: 0 2em 5em;
+		padding: 0 1em 4.5em;
 	}
 
 	.detail-summary-card,
 	.detail-jump-nav,
 	.detail-section {
 		padding: 18px;
+	}
+
+	.detail-summary-title {
+		font-size: 1.72rem;
+	}
+
+	.detail-summary-text {
+		font-size: 0.96rem;
+		line-height: 1.72;
 	}
 
 	.detail-section-index {
@@ -567,7 +598,7 @@ button.trigger span::before {
 
 	.title,
 	.content {
-		font-size: 50%;
+		font-size: 92%;
 	}
 
 	button.trigger::before {

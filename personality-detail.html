@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="./static/css/bootstrap.min.css">
     <link rel="stylesheet" href="./static/css/personality-detail.css">
     <link rel="stylesheet" href="./static/css/editorial-theme.css">
-    <script defer src="./static/js/common/site-shell.js"></script>
     <script defer src="./static/js/common/data-loader.js"></script>
     <script defer src="./static/js/pages/personality-intro.js"></script>
     <script defer src="./static/js/pages/personality-detail.js"></script>
@@ -34,15 +33,8 @@
                         <span class="brand-note">用于理解人格偏好与行为风格的参考测试</span>
                     </span>
                 </a>
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main"
-                    aria-expanded="false"
-                    aria-label="切换导航菜单">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
             </div>
-            <div class="navbar-collapse collapse" id="navbar-main">
+            <div class="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="./personality-types.html">十六种人格简介</a>
@@ -62,9 +54,10 @@
                     <span class="eyebrow">Type Dossier / Personality Archive</span>
                     <h1 id="personality-type">MBTI</h1>
                     <p class="subline" id="personality-subtitle">人格详情加载中</p>
+                    <p class="hero-note">展开后继续查看特点、优势、关系与职业倾向</p>
                 </div>
             </div>
-            <button class="trigger" data-info="点击查看详情" aria-label="展开人格详情">
+            <button class="trigger" data-info="展开完整人格档案" aria-label="展开完整人格档案">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="color: white;" fill="currentColor"
                     class="bi bi-box" viewBox="0 0 16 16">
                     <path

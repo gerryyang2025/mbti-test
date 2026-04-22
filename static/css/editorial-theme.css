@@ -7,6 +7,9 @@
     --signal: #ff5a36;
     --electric: #00b8ff;
     --sun: #ffd24b;
+    --button-pill-min: 12.75rem;
+    --button-home-min: 18rem;
+    --button-card-min: 11.5rem;
     --panel-shadow: 12px 12px 0 rgba(20, 21, 28, 0.12);
     --panel-shadow-strong: 18px 18px 0 rgba(20, 21, 28, 0.15);
 }
@@ -199,6 +202,7 @@ a:focus {
     align-items: center;
     justify-content: center;
     min-height: 48px;
+    min-width: var(--button-pill-min);
     padding: 12px 18px;
     border: 2px solid var(--ink);
     border-radius: 999px 16px 999px 999px;
@@ -235,6 +239,7 @@ a:focus {
     align-items: center;
     justify-content: center;
     min-height: 48px;
+    min-width: var(--button-pill-min);
     margin: 12px 0 12px 12px;
     padding: 14px 16px;
     border: 2px solid var(--ink);
@@ -254,6 +259,10 @@ a:focus {
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
+.navbar-default .navbar-nav > li:first-child > a {
+    margin-left: 0;
+}
+
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: var(--ink) !important;
@@ -271,20 +280,7 @@ a:focus {
 .navbar-utility {
     display: flex;
     align-items: center;
-    margin: 12px 0 12px 12px;
-}
-
-.navbar-default .navbar-toggle {
-    margin-top: 10px;
-    border: 2px solid var(--ink);
-    border-radius: 10px;
-    background: var(--paper) !important;
-    box-shadow: 4px 4px 0 rgba(20, 21, 28, 0.08);
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    height: 3px;
-    background: var(--ink);
+    margin: 12px 0;
 }
 
 .issue-tag,
@@ -337,7 +333,7 @@ a:focus {
     flex-wrap: wrap;
     align-items: center;
     gap: 14px;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 .page-home .home-nav {
@@ -356,8 +352,10 @@ a:focus {
 }
 
 .page-home .page-header {
-    margin: 8px 0 34px;
-    padding: clamp(28px, 5vw, 46px);
+    display: grid;
+    gap: 18px;
+    margin: 8px 0 22px;
+    padding: clamp(30px, 5vw, 54px) clamp(24px, 4.5vw, 46px) clamp(34px, 5vw, 52px);
     border: 2px solid var(--ink);
     border-radius: 30px 4px 30px 4px;
     background:
@@ -403,8 +401,21 @@ a:focus {
 .page-home .content {
     display: flex;
     justify-content: center;
+    width: 100%;
+    margin-top: 10px;
     font: 900 clamp(3.5rem, 12vw, 9rem) / 0.82 Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     letter-spacing: 0.06em;
+}
+
+.page-home .hero-deck {
+    position: relative;
+    z-index: 1;
+    max-width: 42rem;
+    margin: 0 auto;
+    color: var(--ink-soft);
+    font-size: clamp(1rem, 1.85vw, 1.18rem);
+    line-height: 1.82;
+    text-align: center;
 }
 
 .page-home .text {
@@ -457,7 +468,7 @@ a:focus {
 }
 
 .page-home .bs-docs-section {
-    margin-top: 34px;
+    margin-top: 10px;
 }
 
 .page-home .bs-component {
@@ -509,9 +520,10 @@ a:focus {
 .page-home .home-actions {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: stretch;
+    justify-content: flex-start;
     gap: 18px;
-    margin: 32px 0 84px;
+    margin: 0 0 42px;
 }
 
 .page-home .a-btn {
@@ -519,6 +531,8 @@ a:focus {
     left: auto;
     width: auto;
     height: auto;
+    min-width: var(--button-home-min);
+    min-height: 78px;
     margin: 0;
     margin-left: 0;
     padding: 18px 28px;
@@ -528,6 +542,7 @@ a:focus {
     box-shadow: 14px 14px 0 rgba(255, 90, 54, 0.48);
     display: inline-flex;
     align-items: center;
+    justify-content: space-between;
     gap: 14px;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
@@ -593,6 +608,14 @@ a:focus {
     box-shadow: 10px 10px 0 rgba(255, 210, 75, 0.52);
 }
 
+.page-home .secondary-link {
+    min-width: var(--button-home-min);
+    min-height: 78px;
+    padding: 18px 24px;
+    justify-content: center;
+    text-align: center;
+}
+
 .page-test .test-nav {
     margin-bottom: 34px;
 }
@@ -652,6 +675,7 @@ a:focus {
 
 .page-test .flexWidth {
     width: min(860px, 100%);
+    margin: 0 auto;
 }
 
 .page-test #mbtiquestion > p {
@@ -891,6 +915,7 @@ a:focus {
     min-height: 180px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
     justify-content: flex-end;
     background: linear-gradient(180deg, transparent 0, rgba(247, 240, 227, 0.58) 18%, rgba(247, 240, 227, 0.97) 100%);
 }
@@ -905,7 +930,7 @@ a:focus {
 }
 
 .page-types .grid figcaption p {
-    margin: 0 0 18px;
+    margin: 0;
     padding: 0;
     color: var(--ink-soft);
     font-family: "Courier New", "Lucida Console", monospace;
@@ -919,7 +944,14 @@ a:focus {
 
 .page-types .grid figure .card-cta {
     position: static;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
     width: fit-content;
+    min-width: var(--button-card-min);
+    min-height: 44px;
+    margin-top: auto;
     padding: 0.72rem 1rem;
     border: 2px solid var(--ink);
     background: var(--signal);
@@ -971,6 +1003,7 @@ a:focus {
 
 .page-detail .header {
     min-height: 78vh;
+    padding: 92px 0 172px;
     border: 2px solid var(--ink);
     background:
         linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(247, 240, 227, 0.74)),
@@ -1014,43 +1047,87 @@ a:focus {
 
 .page-detail .title {
     width: min(820px, calc(100% - 48px));
-    padding: clamp(24px, 4vw, 48px);
+    display: grid;
+    gap: 12px;
+    justify-items: center;
+    padding: clamp(28px, 4.5vw, 54px) clamp(24px, 4.6vw, 52px) clamp(30px, 4.4vw, 48px);
     border: 2px solid var(--ink);
-    background: rgba(255, 252, 246, 0.88);
+    background:
+        linear-gradient(145deg, rgba(255, 252, 246, 0.94), rgba(247, 240, 227, 0.88)),
+        repeating-linear-gradient(135deg, rgba(20, 21, 28, 0.03) 0 2px, transparent 2px 18px);
     box-shadow: var(--panel-shadow-strong);
     transform: translateX(-50%) translateY(-50%) rotate(-2deg);
 }
 
+.page-detail .title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, var(--signal), var(--sun), var(--electric));
+}
+
 .page-detail .title .eyebrow {
-    margin-bottom: 16px;
+    margin-bottom: 2px;
+    justify-self: center;
 }
 
 .page-detail .title h1 {
     margin: 0;
-    padding: 0 0 0.1em;
+    padding: 0;
     color: var(--ink);
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     font-size: clamp(4rem, 10vw, 8.4rem);
     letter-spacing: 0.12em;
+    line-height: 0.92;
     text-shadow: 6px 6px 0 rgba(255, 90, 54, 0.16);
 }
 
 .page-detail .title p {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    max-width: 34rem;
     color: var(--ink-soft);
     font-family: "Courier New", "Lucida Console", monospace;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
-    letter-spacing: 0.18em;
-    line-height: 1.6;
+    letter-spacing: 0.14em;
+    line-height: 1.72;
     text-transform: uppercase;
+    text-align: center;
+}
+
+.page-detail .hero-note {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.55rem 0.9rem;
+    border: 2px solid var(--ink);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 6px 6px 0 rgba(20, 21, 28, 0.1);
+    color: var(--ink) !important;
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.74rem !important;
+    font-weight: 700;
+    letter-spacing: 0.14em !important;
+    line-height: 1.45 !important;
+    text-transform: uppercase;
+}
+
+.page-detail .intro-effect-jam3 .header p.subline,
+.page-detail .intro-effect-jam3 .header p.hero-note {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
 }
 
 .page-detail button.trigger {
     left: 50%;
-    bottom: 24px;
-    width: 96px;
-    height: 96px;
+    bottom: 26px;
+    width: 102px;
+    height: 102px;
     margin-left: 0;
     border: 2px solid var(--ink);
     border-radius: 50% 50% 0 50%;
@@ -1065,15 +1142,15 @@ a:focus {
 
 .page-detail button.trigger::before {
     left: 50%;
-    bottom: calc(100% + 12px);
+    bottom: calc(100% + 14px);
     width: max-content;
     padding: 0.48rem 0.72rem;
     border: 2px solid var(--ink);
     background: var(--ink);
     color: var(--paper);
     font-family: "Courier New", "Lucida Console", monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     transform: translateX(-50%) rotate(-4deg);
 }
@@ -1091,7 +1168,7 @@ a:focus {
 }
 
 .page-detail .content {
-    margin-top: -72px;
+    margin-top: -60px;
     padding: 0 0 6rem;
 }
 
@@ -1205,22 +1282,11 @@ footer,
         box-shadow: none;
     }
 
-    .navbar-default .navbar-collapse.collapse {
-        display: flex !important;
-        height: auto !important;
-        overflow: visible !important;
-        padding-bottom: 0;
-    }
-
     .navbar-default .navbar-nav {
         float: none;
         display: flex;
         align-items: center;
         justify-content: flex-end;
-    }
-
-    .navbar-default .navbar-toggle {
-        display: none;
     }
 }
 
@@ -1298,20 +1364,20 @@ footer,
     .brand-help {
         width: auto;
         min-height: 48px;
+        min-width: 11.75rem;
         padding: 12px 18px;
         font-size: 0.92rem;
         letter-spacing: 0.06em;
-        box-shadow: none;
-    }
-
-    .navbar-default .navbar-toggle {
-        display: none;
+        box-shadow: 8px 8px 0 rgba(214, 255, 63, 0.16);
     }
 
     .navbar-default .navbar-collapse {
-        border-top: 1px solid rgba(20, 21, 28, 0.12);
-        padding: 8px 0 12px;
-        display: block !important;
+        border-top: 0;
+        padding: 8px 0 10px;
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
     }
 
     .navbar-utility {
@@ -1319,13 +1385,20 @@ footer,
         justify-content: flex-start;
     }
 
+    .navbar-default .navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
     .navbar-default .navbar-nav > li > a {
-        margin: 8px 0 0;
+        min-width: 11.75rem;
+        margin: 8px 8px 0 0;
         padding: 12px 14px;
         font-size: 0.92rem;
         white-space: normal;
         word-break: keep-all;
-        box-shadow: none;
+        box-shadow: 6px 6px 0 rgba(255, 90, 54, 0.14);
         border-radius: 18px 10px 18px 18px;
     }
 
@@ -1334,12 +1407,43 @@ footer,
     .page-test .survey-lead::after,
     .page-types .types-intro::after,
     .page-detail .header::after {
-        display: none;
+        display: block;
+        padding: 0.28rem 0.48rem;
+        font-size: 0.56rem;
+        letter-spacing: 0.1em;
+    }
+
+    .page-home .page-header::before {
+        top: 14px;
+        right: 14px;
+        transform: rotate(3deg);
+    }
+
+    .page-home .page-header::after {
+        left: 14px;
+        bottom: 14px;
+        transform: rotate(-3deg);
+    }
+
+    .page-test .survey-lead::after,
+    .page-types .types-intro::after {
+        right: 14px;
+        bottom: 14px;
+        transform: rotate(3deg);
+    }
+
+    .page-detail .header::after {
+        right: 14px;
+        bottom: 14px;
+        transform: rotate(4deg);
     }
 
     .page-home .home-actions {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 14px;
+        margin: 0 0 30px;
     }
 
     .page-home .a-btn {
@@ -1352,35 +1456,141 @@ footer,
 
     .secondary-link {
         width: auto;
+        min-width: 16.5rem;
         max-width: 100%;
         align-self: flex-start;
         justify-content: center;
     }
 
+    .page-home .page-header {
+        gap: 12px;
+        margin-bottom: 18px;
+        padding: 28px 18px 30px;
+    }
+
+    .page-home .content {
+        margin-top: 8px;
+    }
+
+    .page-home .hero-deck {
+        max-width: 31ch;
+        font-size: 0.96rem;
+        line-height: 1.72;
+    }
+
+    .page-home .bs-docs-section {
+        margin-top: 4px;
+    }
+
     .page-test .ac-custom::before {
-        display: none;
+        display: block;
+        top: 12px;
+        right: 12px;
+        padding: 0.28rem 0.46rem;
+        font-size: 0.56rem;
+        letter-spacing: 0.1em;
+        transform: rotate(3deg);
     }
 
     .page-types .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
     }
 
     .page-types .grid a {
         transform: none !important;
     }
 
+    .page-types .grid figure {
+        min-height: 326px;
+    }
+
+    .page-types .grid img {
+        height: 218px;
+    }
+
+    .page-types .grid figcaption {
+        min-height: 160px;
+        padding: 16px 14px 20px;
+    }
+
+    .page-types .grid figcaption h2 {
+        font-size: clamp(1.7rem, 6vw, 2.4rem);
+    }
+
+    .page-types .grid figcaption p {
+        font-size: 0.74rem;
+        line-height: 1.6;
+    }
+
+    .page-detail .header {
+        min-height: 74vh;
+        padding: 86px 0 148px;
+    }
+
     .page-detail .title {
-        width: calc(100% - 24px);
+        width: calc(100% - 16px);
+        gap: 10px;
+        padding: 24px 18px 26px;
         transform: translateX(-50%) translateY(-50%) rotate(-1deg);
     }
 
+    .page-detail .title h1 {
+        font-size: clamp(3.4rem, 15vw, 5.2rem);
+        letter-spacing: 0.08em;
+    }
+
+    .page-detail .title p {
+        font-size: 0.92rem;
+        letter-spacing: 0.12em;
+        line-height: 1.5;
+    }
+
+    .page-detail .hero-note {
+        min-height: 38px;
+        padding: 0.5rem 0.72rem;
+        font-size: 0.66rem !important;
+        letter-spacing: 0.1em !important;
+    }
+
     .page-detail button.trigger {
-        width: 84px;
-        height: 84px;
+        bottom: 20px;
+        width: 92px;
+        height: 92px;
+    }
+
+    .page-detail .content {
+        margin-top: -56px;
+        padding: 0 0 5rem;
     }
 
     .page-detail .content > div {
-        padding: 24px 18px 34px;
+        padding: 28px 20px 40px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .page-types .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-home .hero-deck {
+        max-width: 28ch;
+        font-size: 0.92rem;
+    }
+
+    .page-detail .title {
+        width: calc(100% - 12px);
+        padding: 22px 14px 24px;
+    }
+
+    .page-detail .title p {
+        max-width: 26ch;
+    }
+
+    .page-detail .hero-note {
+        max-width: 100%;
+        text-align: center;
     }
 }
 
