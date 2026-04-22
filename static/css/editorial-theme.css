@@ -1556,6 +1556,7 @@ footer,
         line-height: 1.58;
     }
 
+    .page-home .navbar-collapse,
     .page-test .navbar-collapse,
     .page-types .navbar-collapse,
     .page-detail .navbar-collapse {
@@ -1563,6 +1564,7 @@ footer,
         padding-top: 4px;
     }
 
+    .page-home .navbar-utility,
     .page-test .navbar-utility,
     .page-types .navbar-utility,
     .page-detail .navbar-utility {
@@ -1571,6 +1573,7 @@ footer,
         justify-content: center;
     }
 
+    .page-home .brand-help,
     .page-test .brand-help,
     .page-types .brand-help,
     .page-detail .brand-help {
@@ -1710,6 +1713,7 @@ footer,
 
     .page-test .survey-lead,
     .page-types .types-intro,
+    .page-home .brand-help,
     .page-test .brand-help,
     .page-types .brand-help,
     .page-detail .brand-help {
