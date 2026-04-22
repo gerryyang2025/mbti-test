@@ -126,34 +126,100 @@ a:focus {
 
 .navbar-brand {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 14px;
     color: var(--ink) !important;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    font-size: 1.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
     position: relative;
     min-height: auto;
     height: auto;
-    padding: 18px 0 18px 22px;
+    max-width: 620px;
+    padding: 18px 18px 18px 22px;
     line-height: 1;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .navbar-brand::before {
     content: "";
     position: absolute;
-    top: 50%;
+    top: 24px;
     left: 0;
     width: 10px;
     height: 10px;
     border: 2px solid var(--ink);
     background: var(--signal);
-    transform: translateY(-50%) rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .navbar-brand::after {
     display: none;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: var(--ink) !important;
+}
+
+.brand-mark {
+    flex: 0 0 auto;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 1.72rem;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.brand-title {
+    color: var(--ink);
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.38);
+}
+
+.brand-note {
+    color: var(--ink);
+    font-family: Georgia, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    font-weight: 700;
+}
+
+.brand-help {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 18px;
+    border: 2px solid var(--ink);
+    border-radius: 999px 16px 999px 999px;
+    background: linear-gradient(135deg, rgba(0, 184, 255, 0.96), rgba(255, 255, 255, 0.92));
+    box-shadow: 10px 10px 0 rgba(214, 255, 63, 0.2);
+    color: var(--ink) !important;
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: none;
+    transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+}
+
+.brand-help:hover,
+.brand-help:focus {
+    color: var(--ink) !important;
+    background: linear-gradient(135deg, rgba(214, 255, 63, 0.96), rgba(255, 210, 75, 0.96));
+    box-shadow: 14px 14px 0 rgba(255, 90, 54, 0.22);
+    transform: translate(-3px, -3px) rotate(-1deg);
 }
 
 .navbar-default .navbar-nav {
@@ -165,11 +231,16 @@ a:focus {
 }
 
 .navbar-default .navbar-nav > li > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
     margin: 12px 0 12px 12px;
     padding: 14px 16px;
-    border: 2px solid rgba(20, 21, 28, 0.14);
-    background: rgba(255, 255, 255, 0.52);
-    box-shadow: 4px 4px 0 rgba(20, 21, 28, 0.08);
+    border: 2px solid var(--ink);
+    border-radius: 999px 18px 999px 999px;
+    background: linear-gradient(135deg, rgba(255, 210, 75, 0.96), rgba(255, 252, 246, 0.9));
+    box-shadow: 8px 8px 0 rgba(255, 90, 54, 0.18);
     color: var(--ink) !important;
     font-family: "Courier New", "Lucida Console", monospace;
     font-size: 0.9rem;
@@ -185,9 +256,9 @@ a:focus {
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: var(--signal) !important;
-    background: rgba(255, 255, 255, 0.86) !important;
-    box-shadow: 8px 8px 0 rgba(255, 90, 54, 0.16);
+    color: var(--ink) !important;
+    background: linear-gradient(135deg, rgba(255, 90, 54, 0.94), rgba(255, 210, 75, 0.94)) !important;
+    box-shadow: 12px 12px 0 rgba(0, 184, 255, 0.2);
     transform: translate(-3px, -3px) rotate(-1deg);
 }
 
@@ -195,6 +266,12 @@ a:focus {
 .navbar-default .navbar-form {
     border-color: transparent;
     box-shadow: none;
+}
+
+.navbar-utility {
+    display: flex;
+    align-items: center;
+    margin: 12px 0 12px 12px;
 }
 
 .navbar-default .navbar-toggle {
@@ -1117,13 +1194,17 @@ footer,
 
     .navbar-default .navbar-collapse {
         flex: 1 1 auto;
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
         padding: 0;
         border-top: 0;
         box-shadow: none;
     }
 
     .navbar-default .navbar-collapse.collapse {
-        display: block !important;
+        display: flex !important;
         height: auto !important;
         overflow: visible !important;
         padding-bottom: 0;
@@ -1132,8 +1213,8 @@ footer,
     .navbar-default .navbar-nav {
         float: none;
         display: flex;
-        justify-content: flex-end;
         align-items: center;
+        justify-content: flex-end;
     }
 
     .navbar-default .navbar-toggle {
@@ -1172,21 +1253,53 @@ footer,
     }
 
     .navbar-header {
-        min-height: 64px;
+        min-height: 96px;
         padding-right: 58px;
     }
 
     .navbar-brand {
         display: block;
-        padding: 20px 0 18px 22px;
-        font-size: 1.32rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
+        max-width: calc(100% - 4px);
+        padding: 16px 0 16px 22px;
         overflow: visible;
     }
 
     .navbar-brand::after {
         display: none;
+    }
+
+    .navbar-brand::before {
+        top: 22px;
+    }
+
+    .brand-mark {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 1.28rem;
+        letter-spacing: 0.08em;
+    }
+
+    .brand-title {
+        display: block;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+    }
+
+    .brand-note {
+        display: block;
+        max-width: 28ch;
+        font-size: 0.8rem;
+        line-height: 1.45;
+        font-weight: 700;
+    }
+
+    .brand-help {
+        width: 100%;
+        min-height: 42px;
+        padding: 10px 14px;
+        font-size: 0.92rem;
+        letter-spacing: 0.06em;
+        box-shadow: none;
     }
 
     .navbar-default .navbar-toggle {
@@ -1205,6 +1318,11 @@ footer,
     .navbar-default .navbar-collapse {
         border-top: 1px solid rgba(20, 21, 28, 0.12);
         padding: 8px 0 12px;
+        display: block !important;
+    }
+
+    .navbar-utility {
+        margin: 8px 0 0;
     }
 
     .navbar-default .navbar-nav > li > a {
@@ -1214,6 +1332,7 @@ footer,
         white-space: normal;
         word-break: keep-all;
         box-shadow: none;
+        border-radius: 18px 10px 18px 18px;
     }
 
     .page-home .page-header::before,
